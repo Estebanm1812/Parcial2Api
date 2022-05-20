@@ -54,17 +54,20 @@ class CandidateComponent{
         //console.log(res);
         //let obj = await res.json();
 
-        /*
+
         let xhr = new XMLHttpRequest();
 
         xhr.open('PUT','http://localhost:8080/Parcial2Api/api/candidate/updateTotalVotes');
         xhr.setRequestHeader('Content-Type','application/json');
         xhr.send(JSON.stringify(this.candidate) );
-        */
+
+        window.alert('Voto registrado');
 
         window.location.href = "details.html";
 
-        
+
+
+
     }
     
 }

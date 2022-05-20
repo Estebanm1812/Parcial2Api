@@ -20,6 +20,8 @@ public class Candidate {
 
     private int totalVotes;
 
+    private double porcent;
+
     public Candidate(int id, String presidentName, String formulaName, String presidentTitle, String formulaTittle, String presidentPhoto, String formulaPhoto, String partyPhoto, int totalVotes) {
         this.id = id;
         this.presidentName = presidentName;
@@ -44,6 +46,14 @@ public class Candidate {
     }
 
     public Candidate() {
+    }
+
+    public double getPorcent() {
+        return porcent;
+    }
+
+    public void setPorcent(double porcent) {
+        this.porcent = porcent;
     }
 
     public int getId() {

@@ -43,13 +43,14 @@ public class CandidateServices {
     @Path("updateTotalVotes")
     @Produces("application/json")
     @Consumes("application/json")
-    public Response removeProductQuantityFromOrder(Candidate candidate){
+    public Response updateTotalVotes(Candidate candidate){
 
 
         CandidateProvider provider = new CandidateProvider();
         try {
             provider.updateTotalVotes(candidate.getId());
-            return Response.status(200).header("Access-Control-Allow-Origin","*").entity(candidate).build();
+            Message m2 = new Message("SQL Sucess","Sucess");
+            return Response.status(200).header("Access-Control-Allow-Origin","*").entity(m2).build();
         } catch (SQLException e) {
 
             Message m = new Message("SQL Exception", e.getMessage());

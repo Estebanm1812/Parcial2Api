@@ -18,6 +18,7 @@ public class CandidateProvider {
 
         ResultSet results =  conn.getData("SELECT * FROM parcial2A00369267");
 
+        double realTotalVotes = 0;
         while(results.next()){
 
             int id = results.getInt("id");
@@ -37,10 +38,23 @@ public class CandidateProvider {
             String partyPhoto = results.getString("partyPhoto");
 
             int totalVotes = results.getInt("totalVotes");
+            realTotalVotes += totalVotes;
 
             Candidate candidate = new Candidate(id,presidentName,formulaName,presidentTittle,formulaTittle,presidentPhoto,formulaPhoto,partyPhoto,totalVotes);
             candidates.add(candidate);
         }
+        System.out.println(realTotalVotes);
+        for(int i=0; i < candidates.size();i++){
+
+            double currentVotes = candidates.get(i).getTotalVotes();
+            double percent = ((currentVotes/realTotalVotes)*100.0;
+
+
+            candidates.get(i).setPorcent(percent);
+            //System.out.println(candidates.get(i).getPorcent());
+        }
+
+
         System.out.println(candidates.size());
         conn.close();
         return candidates;

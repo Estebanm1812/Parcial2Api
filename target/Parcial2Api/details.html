@@ -16,9 +16,6 @@
 <div class ="chartBox">
     <canvas id="myChart"></canvas>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
 <script>
 
     const getData = async()=>{
@@ -38,8 +35,8 @@
         let url = `http://localhost:8080/Parcial2Api/api/candidate/all`;
         let response = await fetch(url, {method:'GET'} );
         let obj = await response.json();
-        const votes = [obj[0].totalVotes, obj[1].totalVotes, obj[2].totalVotes, obj[3].totalVotes, obj[4].totalVotes, obj[5].totalVotes,obj[6].totalVotes,obj[7].totalVotes,obj[8].totalVotes];
-//console.log(votes);
+        const votes = [obj[0].porcent, obj[1].porcent, obj[2].porcent, obj[3].porcent, obj[4].porcent, obj[5].porcent,obj[6].porcent,obj[7].porcent,obj[8].porcent];
+        //console.log(votes);
         return votes;
     }
 
@@ -82,7 +79,28 @@
 
             type: 'pie',
             data,
-            options: { }
+            options: {
+                tooltips: {
+                    enabled: true
+                },
+                plugins: {
+                    datalabels: {
+                        formatter: (dataNumbers, chart) => {
+
+                            let sum = 0;
+                            let dataArr = chart.chart.data.datasets[0].data;
+                            dataArr.map(data => {
+                                sum += data;
+                            });
+                            let percentage = (dataNumbers * 100 / sum).toFixed(2) + "%";
+                            return percentage;
+
+
+                        },
+                        color: '#fff',
+                    }
+                }
+            }
 
         };
 
@@ -111,3 +129,7 @@
 
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.4.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
