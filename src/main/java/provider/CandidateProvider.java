@@ -47,7 +47,7 @@ public class CandidateProvider {
         for(int i=0; i < candidates.size();i++){
 
             double currentVotes = candidates.get(i).getTotalVotes();
-            double percent = ((currentVotes/realTotalVotes)*100.0;
+            double percent = (currentVotes/realTotalVotes)*100.0;
 
 
             candidates.get(i).setPorcent(percent);
