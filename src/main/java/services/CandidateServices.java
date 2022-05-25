@@ -61,4 +61,14 @@ public class CandidateServices {
         }
 
     }
+
+    @OPTIONS
+    @Path("updateTotalVotes")
+    public Response createUserOptions(){
+        return Response
+                .status(200)
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "*")
+                .build();
+    }
 }
