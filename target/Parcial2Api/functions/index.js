@@ -31,7 +31,7 @@ const getCandidatesAPI = async()=>{
 
 }
 //getCandidatesAPI();
-
+/*
 const load = async()=>{
 
     await getCandidate('Rodolfo Hernandez','Marelen Castillo','Presidente','VicePresidenta','https://pbs.twimg.com/profile_images/1511813393220616192/FGoTlHyJ_400x400.jpg','https://pbs.twimg.com/profile_images/1506282884746952707/ZR_hZJCg_400x400.jpg','https://upload.wikimedia.org/wikipedia/commons/a/ae/Image-removebg-preview-4.png');
@@ -47,6 +47,6 @@ const load = async()=>{
    
    
    }
-
+*/
 //load();
 getCandidatesAPI();
